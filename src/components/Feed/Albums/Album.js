@@ -5,31 +5,9 @@ import { View, Image, TouchableOpacity,Text,StyleSheet } from 'react-native';
 
 
 export default function Album({title, albumId, clickCallback,user,photos}) {
-    const [getAlbum] = useLazyQuery(GET_ALBUM, {
-      variables: { id: albumId },
-      onCompleted({ album }) {
-        clickCallback(album);
-      },
-    })
+   
     return (
-        <TouchableOpacity onPress={()=> getAlbum()} >
-          <View style={styles.rowFront}>
-               <Image
-            style={{width: 50, height: 50, borderRadius: 10, margin: 10}}
-            source={{uri: photos.data[0].url}}
-          />  
-          <View>
-                 <Text> {albumId}</Text>
-                 <Text> {title}</Text>
-                <Text> {user.name}</Text>
-          </View>
-
-
-     
-          </View>
-      
-     
-        </TouchableOpacity>
+   
     )
 }
 const GET_ALBUM = gql`
