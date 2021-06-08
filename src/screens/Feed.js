@@ -10,17 +10,7 @@ const Tab = createMaterialTopTabNavigator();
 export default function Feed() {
   return (
       <>
-      <View style={{justifyContent: 'center', alignItems: 'center',backgroundColor:"#f0efef"}}>
-        <Text style={{color:"#000", fontSize:20, marginTop:20, fontWeight: 'bold'}}>FEED</Text>
-       </View>
-    <Tab.Navigator   tabBarOptions={{
-     //  activeTintColor: '#000',
-       labelStyle: { fontSize: 15 },
-      style: { backgroundColor: '#f0efef' },
-  }}>
-      <Tab.Screen name="Albums" component={Albums} options={{ tabBarLabel: 'Albums' }} />
-      <Tab.Screen name="Posts" component={Posts} />
-    </Tab.Navigator>
+  
  
     </>
   );
