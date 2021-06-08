@@ -12,60 +12,11 @@ import CreateAlbum from './CreateAlbum';
 
 export default function Albums() {
   
-    const [isLoading, setIsLoading] = useState(false);
-    const [albumDetails, setAlbumDetails] = useState(null);
-    const {loading, data} = useQuery(GET_ALBUMS);
-    
-    if (loading) return  <View style={styles.loader}>
-    <ActivityIndicator size="large" color="#0000ff" />
-  </View>;
 
-
-  const renderItem = album => (
-        <Album
-            key={album.item.id}
-            title={album.item.title}
-            albumId={album.item.id}
-            user={album.item.user}
-            photos={album.item.photos}
-            clickCallback={album => setAlbumDetails(album)}
-          ></Album> 
-);
-const renderHiddenItem = (data, rowMap) => (
-  <View style={styles.rowBack}>  
-      <TouchableOpacity style={[styles.backRightBtn, styles.backRightBtnRight]}   >
-          <MaterialCommunityIcons
-            name="trash-can-outline"
-            color="black"
-            size={50}
-          />     
-      </TouchableOpacity>
-  </View>
-);
-const renderFooter = () => {
-  return isLoading ? (
-    <View style={styles.loader}>
-      <ActivityIndicator size="large" color="#0000ff" />
-    </View>
-  ) : null;
-};
 
   return (
        <View >
-           <CreateAlbum />
-           <View style={albumDetails ? {height: 130}: null  }>
-            {albumDetails && <Details album={albumDetails}  setAlbumDetails={setAlbumDetails}></Details>}
-          </View>
-            <SwipeListView
-                data={data.albums.data}
-                renderItem={renderItem}
-                renderHiddenItem={renderHiddenItem}
-                ListFooterComponent={renderFooter}
-                leftOpenValue={75}
-                rightOpenValue={-150}
-                previewRowKey={'0'}
-                previewOpenValue={-40}
-                previewOpenDelay={3000} 
+ 
             />  
     </View>
 
